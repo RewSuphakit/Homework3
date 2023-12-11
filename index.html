@@ -360,7 +360,54 @@
     <br><br><br><br><br>
 
     <hr>
+ <script language=JavaScript>
+  
+        var message = "ห้ามคัดลอก";
+        function clickIE() {
+            if (document.all) {
+                alert(message);
+                return false;
+            }
+        }
 
+        function clickNS(e) {
+            if (document.layers || (document.getElementById && !document.all)) {
+                if (e.which == 2 || e.which == 3) {
+                    alert(message);
+                    return false;
+                }
+            }
+        }
+        if (document.layers) {
+            document.captureEvents(Event.MOUSEDOWN);
+            document.onmousedown = clickNS;
+        } else {
+            document.onmouseup = clickNS;
+            document.oncontextmenu = clickIE;
+        }
+        document.oncontextmenu = new Function("return false")
+   
+    </script>
+    <script>
+        function toggleDropdown(btn) {
+            btn.closest('.dropdown').classList.toggle('active');
+        }
+
+        function setValue(element, targetId) {
+            var selectedValue = element.getAttribute('value');
+            document.getElementById(targetId).innerText = selectedValue;
+
+      
+            var options = element.closest('.dropdown').querySelectorAll('.dropdown-content a');
+            options.forEach(function(option) {
+                option.classList.remove('selected');
+            });
+
+            element.classList.add('selected');
+
+            element.closest('.dropdown').classList.remove('active');
+        }
+    </script>
     <script>
         function toggleDropdown(btn) {
             btn.closest('.dropdown').classList.toggle('active');
@@ -376,7 +423,7 @@
                 option.classList.remove('selected');
             });
 
-            // Add the 'selected' class to the clicked option
+      
             element.classList.add('selected');
 
             element.closest('.dropdown').classList.remove('active');
