@@ -90,13 +90,13 @@
                             <p>Google Doc</p>
                             <div class="row">
                                 <div class="col">
-                                    <div class="rating-container ">
-                                        <input type="radio" id="star1" name="rating" value="1">
-                                        <label for="star1" onclick="changeColor(this)"></label>
-                                        <input type="radio" id="star2" name="rating" value="2">
-                                        <label for="star2" onclick="changeColor(this)"></label>
-                                        <input type="radio" id="star3" name="rating" value="3">
-                                        <label for="star3" onclick="changeColor(this)"></label>
+                                    <div class="rating-container" id="rating-container-1">
+                                        <input type="radio" id="s1" name="rating1" value="1">
+                                        <label for="s1" onclick="changeColor(this, 'rating-container-1')"></label>
+                                        <input type="radio" id="s2" name="rating1" value="2">
+                                        <label for="s2" onclick="changeColor(this, 'rating-container-1')"></label>
+                                        <input type="radio" id="s3" name="rating1" value="3">
+                                        <label for="s3" onclick="changeColor(this, 'rating-container-1')"></label>
                                         <div class="dropdown">
                                             <div class="dropdown-btn" onclick="toggleDropdown(this)">
                                                 <a id="selectedValue">LV-1-3 </a>
@@ -131,13 +131,13 @@
                             <p>Google Doc</p>
                             <div class="row">
                                 <div class="col-ld">
-                                    <div class="rating-container">
-                                        <input type="radio" id="s1" name="rating" value="1">
-                                        <label for="s1" onclick="changeColor(this)"></label>
-                                        <input type="radio" id="s2" name="rating" value="2">
-                                        <label for="s2" onclick="changeColor(this)"></label>
-                                        <input type="radio" id="s3" name="rating" value="3">
-                                        <label for="s3" onclick="changeColor(this)"></label>
+                                    <div class="rating-container" id="rating-container-2">
+                                        <input type="radio" id="d1" name="rating2" value="1">
+                                        <label for="d1" onclick="changeColor(this, 'rating-container-2')"></label>
+                                        <input type="radio" id="d2" name="rating2" value="2">
+                                        <label for="d2" onclick="changeColor(this, 'rating-container-2')"></label>
+                                        <input type="radio" id="d3" name="rating2" value="3">
+                                        <label for="d3" onclick="changeColor(this, 'rating-container-2')"></label>
                                         <div class="dropdown">
                                             <div class="dropdown-btn" onclick="toggleDropdown(this)">
                                                 <a id="selectedValue2">LV-1/3</a>
@@ -198,32 +198,13 @@
 
     </div>
 
-<!--     SUPHAKIT LOMLAO KKTECH  -->
+    <!--     SUPHAKIT LOMLAO KKTECH  -->
 
     <br><br><br><br><br>
 
     <hr>
 
-    <script>
-        function toggleDropdown(btn) {
-            btn.closest('.dropdown').classList.toggle('active');
-        }
 
-        function setValue(element, targetId) {
-            var selectedValue = element.getAttribute('value');
-            document.getElementById(targetId).innerText = selectedValue;
-
-      
-            var options = element.closest('.dropdown').querySelectorAll('.dropdown-content a');
-            options.forEach(function(option) {
-                option.classList.remove('selected');
-            });
-
-            element.classList.add('selected');
-
-            element.closest('.dropdown').classList.remove('active');
-        }
-    </script>
     <script>
         function toggleDropdown(btn) {
             btn.closest('.dropdown').classList.toggle('active');
@@ -239,17 +220,19 @@
                 option.classList.remove('selected');
             });
 
-      
+
             element.classList.add('selected');
 
             element.closest('.dropdown').classList.remove('active');
         }
     </script>
     <script>
-        function changeColor(clickedLabel) {
+        function changeColor(clickedLabel, containerId) {
             var rating = parseInt(clickedLabel.previousElementSibling.value);
 
-            var labels = document.querySelectorAll('.rating-container label');
+            var container = document.getElementById(containerId);
+            var labels = container.querySelectorAll('label');
+
             labels.forEach(function(label) {
                 var labelRating = parseInt(label.previousElementSibling.value);
                 label.style.backgroundColor = labelRating <= rating ? '#34d399' : '#f3f4f6';
