@@ -8,7 +8,11 @@ html {
     font-family: Ubuntu, sans-serif;
     font-family: inherit;
 }
-
+.icon-home {
+    & i:hover {
+        color: #10b981;
+    }
+}
 .container {
     max-width: 1250px;
     margin: 0 auto;
