@@ -226,25 +226,7 @@
             element.closest('.dropdown').classList.remove('active');
         }
     </script>
-    <script>
-        
-        // อ่านจำนวนผู้ชมจาก Local Storage
-        let visitorCount = localStorage.getItem("visitorCount");
-
-        // ถ้าไม่มีข้อมูลใน Local Storage ให้กำหนดค่าเริ่มต้นเป็น 0
-        if (!visitorCount) {
-            visitorCount = 0;
-        }
-
-        // เพิ่มจำนวนผู้ชม
-        visitorCount++;
-
-        // บันทึกจำนวนผู้ชมใน Local Storage
-        localStorage.setItem("visitorCount", visitorCount);
-
-        // แสดงจำนวนผู้ชมใน console
-        console.log("จำนวนผู้ชม: " + visitorCount);
-    </script>
+  
 <!--    ห้าม คัดลอก   -->
     <script>
         function changeColor(clickedLabel, containerId) {
