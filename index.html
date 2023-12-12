@@ -227,6 +227,19 @@
         }
     </script>
     <script>
+        // สร้างตัวแปรเพื่อเก็บจำนวนคนที่เข้าดูเว็บ
+var visitorCount = 0;
+
+// เพิ่มจำนวนคนทุกครั้งที่มีการเข้าถึงเว็บ
+function incrementVisitorCount() {
+  visitorCount++;
+  console.log("จำนวนคนที่เข้าดูเว็บ: " + visitorCount);
+}
+
+// เรียกใช้ฟังก์ชั่นเมื่อมีการโหลดหน้าเว็บ
+incrementVisitorCount();
+    </script>
+    <script>
         function changeColor(clickedLabel, containerId) {
             var rating = parseInt(clickedLabel.previousElementSibling.value);
 
