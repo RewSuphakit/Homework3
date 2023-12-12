@@ -227,17 +227,25 @@
         }
     </script>
     <script>
-        // สร้างตัวแปรเพื่อเก็บจำนวนคนที่เข้าดูเว็บ
+  / สร้างตัวแปรเพื่อเก็บจำนวนคนที่เข้าดูเว็บ
 var visitorCount = 0;
 
-// เพิ่มจำนวนคนทุกครั้งที่มีการเข้าถึงเว็บ
+// เพิ่มจำนวนคนทุกครั้งที่มีการโหลดหน้าเว็บ
 function incrementVisitorCount() {
   visitorCount++;
   console.log("จำนวนคนที่เข้าดูเว็บ: " + visitorCount);
 }
 
-// เรียกใช้ฟังก์ชั่นเมื่อมีการโหลดหน้าเว็บ
-incrementVisitorCount();
+// เรียกใช้ฟังก์ชันเมื่อมีการโหลดหน้าเว็บ
+window.onload = function() {
+  incrementVisitorCount();
+};
+
+// เรียกใช้ฟังก์ชันเมื่อมีการคลิกปุ่มหรือเหตุการณ์อื่นๆที่คุณต้องการติดตาม
+// ตัวอย่าง: เมื่อคลิกปุ่ม
+document.getElementById("myButton").addEventListener("click", function() {
+  incrementVisitorCount();
+});
     </script>
     <script>
         function changeColor(clickedLabel, containerId) {
